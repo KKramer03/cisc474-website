@@ -1,0 +1,20 @@
+body {
+    background-color: #031654;
+}
+
+h1.main {
+    color: white;
+    text-align: center;
+}
+
+div {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.imageButton {
+    /* display: block;
+    margin: auto; */
+}
+
