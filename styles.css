@@ -5,6 +5,13 @@ body {
 h1.main {
     color: white;
     text-align: center;
+    font-family: monospace;
+    background: #a204db;
+    background: linear-gradient(90deg,rgba(162, 4, 219, 1) 0%, rgba(22, 122, 245, 1) 100%);
+    padding: 5px;
+    /*   */
+    
+    /* border-offset: 20px; */
 }
 
 div {
@@ -14,7 +21,11 @@ div {
 }
 
 .imageButton {
-    /* display: block;
-    margin: auto; */
+    background-color: white;
+    font-size: 16px;
+    font-family: monospace;
+    padding: 5px 20px;
+    border-radius: 10px;
+    margin: auto;
 }
 

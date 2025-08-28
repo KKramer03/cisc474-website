@@ -5,7 +5,7 @@ function browserInfo() {
         return "Firefox";
     }
     else if (userAgent.includes("Edg")) {
-        return "Edge";
+        return "Chromium";
     }
     else if (userAgent.includes("Chrome")) {
         return "Chrome";
@@ -20,12 +20,15 @@ function browserInfo() {
 
 document.addEventListener('DOMContentLoaded', () => {
     const button = document.querySelector('.imageButton')
+    const header = document.querySelector('.main')
     const img = document.createElement('img');
+    img.style.opacity = '0';
+    console.log(browserInfo());
     switch (browserInfo()) {
         case "Firefox":
             img.src = 'https://upload.wikimedia.org/wikipedia/commons/a/a0/Firefox_logo%2C_2019.svg';
             break;
-        case "Edge":
+        case "Chromium":
             img.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Chromium_Logo.svg/512px-Chromium_Logo.svg.png?20220330065025';
             break;
        
@@ -36,12 +39,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     button.addEventListener('click', () => {
         const width = window.innerWidth;
-        const height = window.innerHeight;
-            button.style.display = 'none';
-            img.height = height * 0.25;
-            img.width = width * 0.25;        
+        button.style.transition = 'opacity 0.5s'; // 0.5 seconds fade out
+        button.style.opacity = '0';
+
+        button.addEventListener('transitionend', function handleTransition() {
+        button.style.display = 'none';
+
+        img.width = width * 0.25; 
         const usedDiv = document.getElementById('primaryDiv')
         usedDiv.appendChild(img);
+        setTimeout(() => {
+            img.style.transition = 'opacity 1s';
+            img.style.opacity = '1';
+        });
+
+        
+        
+});
+        header.textContent = "You are using: " + browserInfo();
+
+                
+       
         })
     }
 );
