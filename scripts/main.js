@@ -18,8 +18,17 @@ function browserInfo() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    const button = document.querySelector('.imageButton')
+if(document.readyState !== 'loading') {
+    updateBrowserInfo();
+}
+else{
+    document.addEventListener('DOMContentLoaded', () => {
+       updateBrowserInfo();
+    });
+}
+
+function updateBrowserInfo(){
+  const button = document.querySelector('.imageButton')
     const header = document.querySelector('.main')
     const img = document.createElement('img');
     img.style.opacity = '0';
@@ -61,5 +70,5 @@ document.addEventListener('DOMContentLoaded', () => {
                 
        
         })
-    }
-);
+}
+
